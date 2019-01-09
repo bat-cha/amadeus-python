@@ -1,0 +1,927 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Reference &mdash; Amadeus 2.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Amadeus 2.0.0 documentation" href="#"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> Amadeus
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Reference</a><ul>
+<li><a class="reference internal" href="#client">Client</a></li>
+<li><a class="reference internal" href="#response">Response</a></li>
+<li><a class="reference internal" href="#responseerror">ResponseError</a></li>
+<li><a class="reference internal" href="#request">Request</a></li>
+<li><a class="reference internal" href="#shopping-flights">Shopping/Flights</a></li>
+<li><a class="reference internal" href="#shopping-hotels">Shopping/Hotels</a></li>
+<li><a class="reference internal" href="#travel-analytics">Travel/Analytics</a></li>
+<li><a class="reference internal" href="#referencedata-locations">ReferenceData/Locations</a></li>
+<li><a class="reference internal" href="#referencedata-urls">ReferenceData/Urls</a></li>
+<li><a class="reference internal" href="#helper-location">Helper/Location</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Amadeus</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Reference</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/amadeus4dev/amadeus-python/blob/master/docs/index.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="reference">
+<h1>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="client">
+<h2>Client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="amadeus.Client">
+<em class="property">class </em><code class="descclassname">amadeus.</code><code class="descname">Client</code><span class="sig-paren">(</span><em>**options</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/amadeus.html#Client"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.Client" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Amadeus client library for accessing
+the travel APIs.</p>
+<dl class="method">
+<dt id="amadeus.Client.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>**options</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/amadeus.html#Client.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.Client.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize using your credentials:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">amadeus</span> <span class="kn">import</span> <span class="n">Client</span>
+
+<span class="n">amadeus</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span>
+    <span class="n">client_id</span><span class="o">=</span><span class="s1">&#39;YOUR_CLIENT_ID&#39;</span><span class="p">,</span>
+    <span class="n">client_secret</span><span class="o">=</span><span class="s1">&#39;YOUR_CLIENT_SECRET&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Alternatively, initialize the library using the environment variables
+<code class="docutils literal notranslate"><span class="pre">AMADEUS_CLIENT_ID</span></code> and <code class="docutils literal notranslate"><span class="pre">AMADEUS_CLIENT_SECRET</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">amadeus</span> <span class="o">=</span> <span class="n">amadeus</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>client_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – the API key used to authenticate the API</li>
+<li><strong>client_secret</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – the API secret used to authenticate the API</li>
+<li><strong>logger</strong> (<a class="reference external" href="https://docs.python.org/3/library/logging.html#logging.Logger" title="(in Python v3.7)"><em>logging.Logger</em></a>) – (optional) a Python compatible logger
+(Default: <code class="docutils literal notranslate"><span class="pre">logging.Logger</span></code>)</li>
+<li><strong>log_level</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – (optional) the log level of the client, either
+<code class="docutils literal notranslate"><span class="pre">&quot;debug&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;warn&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;silent&quot;</span></code> mode
+(Default: <code class="docutils literal notranslate"><span class="pre">&quot;silent&quot;</span></code>)</li>
+<li><strong>hostname</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – (optional) the name of the server API calls are made
+to, <code class="docutils literal notranslate"><span class="pre">&quot;production&quot;</span></code>  or <code class="docutils literal notranslate"><span class="pre">&quot;test&quot;</span></code>. (Default: <code class="docutils literal notranslate"><span class="pre">&quot;test&quot;</span></code>)</li>
+<li><strong>host</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – (optional) alternatively, you can specify a full host
+domain name instead, e.g. <code class="docutils literal notranslate"><span class="pre">&quot;api.example.com&quot;</span></code></li>
+<li><strong>ssl</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – if this client is should use HTTPS (Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>)</li>
+<li><strong>port</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – the port this client should use (Default: <code class="docutils literal notranslate"><span class="pre">80</span></code> for HTTP
+and <code class="docutils literal notranslate"><span class="pre">443</span></code> for HTTPS)</li>
+<li><strong>custom_app_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – (optional) a custom App ID to be passed in
+the User Agent to the server (Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</li>
+<li><strong>custom_app_version</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – (optional) a custom App Version number to
+be passed in the User Agent to the server (Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</li>
+<li><strong>http</strong> (<em>urllib.request.urlopen</em>) – (optional) a <a class="reference external" href="https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen" title="(in Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">urllib.request.urlopen()</span></code></a> compatible
+client that accepts a <a class="reference external" href="https://docs.python.org/3/library/urllib.request.html#urllib.request.Request" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">urllib.request.Request</span></code></a> compatible
+object (Default: <code class="docutils literal notranslate"><span class="pre">urlopen</span></code>)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.7)"><strong>ValueError</strong></a> – when a required param is missing</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="amadeus.Client.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>path</em>, <em>**params</em><span class="sig-paren">)</span><a class="headerlink" href="#amadeus.Client.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>A helper function for making generic GET requests calls. It is used by
+every namespaced API GET method.</p>
+<p>It can be used to make any generic API call that is automatically
+authenticated using your API credentials:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">amadeus</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/foo/bar&#39;</span><span class="p">,</span> <span class="n">airline</span><span class="o">=</span><span class="s1">&#39;1X&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – path the full path for the API call</li>
+<li><strong>params</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – (optional) params to pass to the API</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="#amadeus.Response" title="amadeus.Response">amadeus.Response</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#amadeus.ResponseError" title="amadeus.ResponseError"><strong>amadeus.ResponseError</strong></a> – when the request fails</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="amadeus.Client.post">
+<code class="descname">post</code><span class="sig-paren">(</span><em>path</em>, <em>**params</em><span class="sig-paren">)</span><a class="headerlink" href="#amadeus.Client.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>A helper function for making generic POST requests calls. It is used by
+every namespaced API POST method.</p>
+<p>It can be used to make any generic API call that is automatically
+authenticated using your API credentials:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">amadeus</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/foo/bar&#39;</span><span class="p">,</span> <span class="n">airline</span><span class="o">=</span><span class="s1">&#39;1X&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – path the full path for the API call</li>
+<li><strong>params</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – (optional) params to pass to the API</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="#amadeus.Response" title="amadeus.Response">amadeus.Response</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#amadeus.ResponseError" title="amadeus.ResponseError"><strong>amadeus.ResponseError</strong></a> – when the request fails</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="amadeus.Client.request">
+<code class="descname">request</code><span class="sig-paren">(</span><em>verb</em>, <em>path</em>, <em>**params</em><span class="sig-paren">)</span><a class="headerlink" href="#amadeus.Client.request" title="Permalink to this definition">¶</a></dt>
+<dd><p>A helper function for making generic POST requests calls. It is used by
+every namespaced API method. It can be used to make any generic API
+call that is automatically authenticated using your API credentials:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">amadeus</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;/foo/bar&#39;</span><span class="p">,</span> <span class="n">airline</span><span class="o">=</span><span class="s1">&#39;1X&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>verb</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – the HTTP verb to use</li>
+<li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – path the full path for the API call</li>
+<li><strong>params</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – (optional) params to pass to the API</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="#amadeus.Response" title="amadeus.Response">amadeus.Response</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#amadeus.ResponseError" title="amadeus.ResponseError"><strong>amadeus.ResponseError</strong></a> – when the request fails</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="response">
+<h2>Response<a class="headerlink" href="#response" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="amadeus.Response">
+<em class="property">class </em><code class="descclassname">amadeus.</code><code class="descname">Response</code><span class="sig-paren">(</span><em>http_response</em>, <em>request</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/client/response.html#Response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.Response" title="Permalink to this definition">¶</a></dt>
+<dd><p>The response object returned for every API call.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>http_response</strong> – the raw http response</li>
+<li><a class="reference internal" href="#amadeus.Client.request" title="amadeus.Client.request"><strong>request</strong></a> (<a class="reference internal" href="#amadeus.Request" title="amadeus.Request"><em>amadeus.Request</em></a>) – the original Request object used to make this call</li>
+<li><strong>result</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – the parsed JSON received from the API, if the result was JSON</li>
+<li><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – the data extracted from the JSON data, if the body contained
+JSON</li>
+<li><strong>body</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – the raw body received from the API</li>
+<li><strong>parsed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – wether the raw body has been parsed into JSON</li>
+<li><strong>status_code</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The HTTP status code for the response, if any</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="responseerror">
+<h2>ResponseError<a class="headerlink" href="#responseerror" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="amadeus.ResponseError">
+<em class="property">class </em><code class="descclassname">amadeus.</code><code class="descname">ResponseError</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/client/errors.html#ResponseError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.ResponseError" title="Permalink to this definition">¶</a></dt>
+<dd><p>An Amadeus error</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>response</strong> (<a class="reference internal" href="#amadeus.Response" title="amadeus.Response"><em>amadeus.Response</em></a>) – The response object containing the raw HTTP response and
+the request used to make the API call.</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/code.html#module-code" title="(in Python v3.7)"><strong>code</strong></a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – A unique code for this type of error. Options include
+<code class="docutils literal notranslate"><span class="pre">NetworkError</span></code>, <code class="docutils literal notranslate"><span class="pre">ParserError</span></code>, <code class="docutils literal notranslate"><span class="pre">ServerError</span></code>,
+<code class="docutils literal notranslate"><span class="pre">AuthenticationError</span></code>, <code class="docutils literal notranslate"><span class="pre">NotFoundError</span></code> and <code class="docutils literal notranslate"><span class="pre">UnknownError</span></code>.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="amadeus.AuthenticationError">
+<em class="property">class </em><code class="descclassname">amadeus.</code><code class="descname">AuthenticationError</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/client/errors.html#AuthenticationError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.AuthenticationError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">amadeus.client.errors.ResponseError</span></code></p>
+<p>This error occurs when the client did not provide the right credentials</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="amadeus.ClientError">
+<em class="property">class </em><code class="descclassname">amadeus.</code><code class="descname">ClientError</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/client/errors.html#ClientError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.ClientError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">amadeus.client.errors.ResponseError</span></code></p>
+<p>This error occurs when the client did not provide the right parameters</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="amadeus.NetworkError">
+<em class="property">class </em><code class="descclassname">amadeus.</code><code class="descname">NetworkError</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/client/errors.html#NetworkError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.NetworkError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">amadeus.client.errors.ResponseError</span></code></p>
+<p>This error occurs when there is some kind of error in the network</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="amadeus.ServerError">
+<em class="property">class </em><code class="descclassname">amadeus.</code><code class="descname">ServerError</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/client/errors.html#ServerError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.ServerError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">amadeus.client.errors.ResponseError</span></code></p>
+<p>This error occurs when there is an error on the server</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="amadeus.NotFoundError">
+<em class="property">class </em><code class="descclassname">amadeus.</code><code class="descname">NotFoundError</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/client/errors.html#NotFoundError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.NotFoundError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">amadeus.client.errors.ResponseError</span></code></p>
+<p>This error occurs when the path could not be found</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="amadeus.ParserError">
+<em class="property">class </em><code class="descclassname">amadeus.</code><code class="descname">ParserError</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/client/errors.html#ParserError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.ParserError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">amadeus.client.errors.ResponseError</span></code></p>
+<p>This error occurs when the response type was JSOn but could not be parsed</p>
+</dd></dl>
+
+</div>
+<div class="section" id="request">
+<h2>Request<a class="headerlink" href="#request" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="amadeus.Request">
+<em class="property">class </em><code class="descclassname">amadeus.</code><code class="descname">Request</code><span class="sig-paren">(</span><em>options</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/client/request.html#Request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.Request" title="Permalink to this definition">¶</a></dt>
+<dd><p>An object containing all the compiled information about the request made.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>host</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – The host used for this API call</li>
+<li><strong>port</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The port for this API call. Standard set to 443.</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/ssl.html#module-ssl" title="(in Python v3.7)"><strong>ssl</strong></a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Wether to use SSL for a call, defaults to true</li>
+<li><strong>scheme</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – The scheme used to make the API call</li>
+<li><strong>params</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – The GET/POST params for the API call</li>
+<li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – The path of the API to be called</li>
+<li><strong>verb</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – The verb used to make an API call (‘GET’ or ‘POST’)</li>
+<li><strong>bearer_token</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – The bearer token (if any) that was used for
+authentication</li>
+<li><strong>headers</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – The headers used for the API call</li>
+<li><strong>client_version</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – The library version used for this request</li>
+<li><strong>language_version</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – The Python language version used for this request</li>
+<li><strong>app_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – The custom app ID passed in for this request</li>
+<li><strong>app_version</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – The custom app version used for this request</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="shopping-flights">
+<h2>Shopping/Flights<a class="headerlink" href="#shopping-flights" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="amadeus.shopping.FlightDestinations">
+<em class="property">class </em><code class="descclassname">amadeus.shopping.</code><code class="descname">FlightDestinations</code><span class="sig-paren">(</span><em>client</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/shopping/_flight_destinations.html#FlightDestinations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.shopping.FlightDestinations" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="amadeus.shopping.FlightDestinations.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/shopping/_flight_destinations.html#FlightDestinations.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.shopping.FlightDestinations.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the cheapest destinations where you can fly to.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">amadeus</span><span class="o">.</span><span class="n">shopping</span><span class="o">.</span><span class="n">flight_destinations</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">origin</span><span class="o">=</span><span class="s1">&#39;LON&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>origin</strong> – the City/Airport IATA code from which the flight will
+depart. <code class="docutils literal notranslate"><span class="pre">&quot;LON&quot;</span></code>, for example for London.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#amadeus.Response" title="amadeus.Response">amadeus.Response</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="#amadeus.ResponseError" title="amadeus.ResponseError"><strong>amadeus.ResponseError</strong></a> – if the request could not be completed</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="amadeus.shopping.FlightDates">
+<em class="property">class </em><code class="descclassname">amadeus.shopping.</code><code class="descname">FlightDates</code><span class="sig-paren">(</span><em>client</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/shopping/_flight_dates.html#FlightDates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.shopping.FlightDates" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="amadeus.shopping.FlightDates.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/shopping/_flight_dates.html#FlightDates.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.shopping.FlightDates.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the cheapest flight dates from an origin to a destination.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">amadeus</span><span class="o">.</span><span class="n">shopping</span><span class="o">.</span><span class="n">flight_dates</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">origin</span><span class="o">=</span><span class="s1">&#39;NYC&#39;</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="s1">&#39;MAD&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>origin</strong> – the City/Airport IATA code from which the flight will
+depart. <code class="docutils literal notranslate"><span class="pre">&quot;NYC&quot;</span></code>, for example for New-York.</li>
+<li><strong>destination</strong> – the City/Airport IATA code to which the flight is
+going. <code class="docutils literal notranslate"><span class="pre">&quot;MAD&quot;</span></code>, for example for Madrid.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="#amadeus.Response" title="amadeus.Response">amadeus.Response</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#amadeus.ResponseError" title="amadeus.ResponseError"><strong>amadeus.ResponseError</strong></a> – if the request could not be completed</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="amadeus.shopping.FlightOffers">
+<em class="property">class </em><code class="descclassname">amadeus.shopping.</code><code class="descname">FlightOffers</code><span class="sig-paren">(</span><em>client</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/shopping/_flight_offers.html#FlightOffers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.shopping.FlightOffers" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="amadeus.shopping.FlightOffers.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/shopping/_flight_offers.html#FlightOffers.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.shopping.FlightOffers.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the cheapest bookable flights.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">amadeus</span><span class="o">.</span><span class="n">shopping</span><span class="o">.</span><span class="n">flight_destinations</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;MAD&#39;</span><span class="p">,</span>
+    <span class="n">destination</span><span class="o">=</span><span class="s1">&#39;NYC&#39;</span><span class="p">,</span>
+    <span class="n">departureDate</span><span class="o">=</span><span class="s1">&#39;2019-08-01&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>origin</strong> – the City/Airport IATA code from which the flight will
+depart. <code class="docutils literal notranslate"><span class="pre">&quot;MAD&quot;</span></code>, for example for Madrid.</li>
+<li><strong>destination</strong> – the City/Airport IATA code to which the flight is
+going. <code class="docutils literal notranslate"><span class="pre">&quot;BOS&quot;</span></code>, for example for Boston.</li>
+<li><strong>departureDate</strong> – the date on which to fly out, in <cite>YYYY-MM-DD</cite>
+format</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="#amadeus.Response" title="amadeus.Response">amadeus.Response</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#amadeus.ResponseError" title="amadeus.ResponseError"><strong>amadeus.ResponseError</strong></a> – if the request could not be completed</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="shopping-hotels">
+<h2>Shopping/Hotels<a class="headerlink" href="#shopping-hotels" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="amadeus.shopping.HotelOffers">
+<em class="property">class </em><code class="descclassname">amadeus.shopping.</code><code class="descname">HotelOffers</code><span class="sig-paren">(</span><em>client</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/shopping/_hotel_offers.html#HotelOffers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.shopping.HotelOffers" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="amadeus.shopping.HotelOffers.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/shopping/_hotel_offers.html#HotelOffers.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.shopping.HotelOffers.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Search for hotels and retrieve availability and rates information.</p>
+<p>Use either <cite>cityCode</cite>, <cite>longitude</cite> and <cite>latitude</cite> or <cite>hotels</cite> to
+make a search.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">amadeus</span><span class="o">.</span><span class="n">shopping</span><span class="o">.</span><span class="n">hotel_offers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cityCode</span><span class="o">=</span><span class="s1">&#39;PAR&#39;</span><span class="p">)</span>
+<span class="n">amadeus</span><span class="o">.</span><span class="n">shopping</span><span class="o">.</span><span class="n">hotel_offers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">longitude</span><span class="o">=</span><span class="mf">49.0</span><span class="p">,</span> <span class="n">latitude</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="n">amadeus</span><span class="o">.</span><span class="n">shopping</span><span class="o">.</span><span class="n">hotel_offers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">hotels</span><span class="o">=</span><span class="s1">&#39;RTPAR001, RTPAR002&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>cityCode</strong> – the City IATA code for which to find a hotel, for
+example <code class="docutils literal notranslate"><span class="pre">&quot;BOS&quot;</span></code> for Boston.</li>
+<li><strong>latitude</strong> – latitude of geographic location to search around.
+For example: <code class="docutils literal notranslate"><span class="pre">52.5238</span></code></li>
+<li><strong>longitude</strong> – longitude of geographic location to search around.
+For example: <code class="docutils literal notranslate"><span class="pre">13.3835</span></code></li>
+<li><strong>hotels</strong> – Comma separated list of Amadeus hotel codes to request.
+Example: <code class="docutils literal notranslate"><span class="pre">RTPAR001</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="#amadeus.Response" title="amadeus.Response">amadeus.Response</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#amadeus.ResponseError" title="amadeus.ResponseError"><strong>amadeus.ResponseError</strong></a> – if the request could not be completed</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="amadeus.shopping.hotel.HotelOffers">
+<em class="property">class </em><code class="descclassname">amadeus.shopping.hotel.</code><code class="descname">HotelOffers</code><span class="sig-paren">(</span><em>client</em>, <em>hotel_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/shopping/hotel/_hotel_offers.html#HotelOffers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.shopping.hotel.HotelOffers" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="amadeus.shopping.hotel.HotelOffers.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/shopping/hotel/_hotel_offers.html#HotelOffers.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.shopping.hotel.HotelOffers.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get available offers for a specific hotel</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">amadeus</span><span class="o">.</span><span class="n">shopping</span><span class="o">.</span><span class="n">hotel</span><span class="p">(</span><span class="s1">&#39;SMPARCOL&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">hotel_offers</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#amadeus.Response" title="amadeus.Response">amadeus.Response</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="#amadeus.ResponseError" title="amadeus.ResponseError"><strong>amadeus.ResponseError</strong></a> – if the request could not be completed</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="amadeus.shopping.hotel.Offer">
+<em class="property">class </em><code class="descclassname">amadeus.shopping.hotel.</code><code class="descname">Offer</code><span class="sig-paren">(</span><em>client</em>, <em>hotel_id</em>, <em>offer_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/shopping/hotel/_offer.html#Offer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.shopping.hotel.Offer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="amadeus.shopping.hotel.Offer.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/shopping/hotel/_offer.html#Offer.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.shopping.hotel.Offer.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get room and rate details for a specific hotel offer</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">amadeus</span><span class="o">.</span><span class="n">shopping</span><span class="o">.</span><span class="n">hotel</span><span class="p">(</span>
+    <span class="s1">&#39;SMPARCOL&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">offers</span><span class="p">(</span><span class="s1">&#39;AC7D4DA2C322A73AF0824318A4965DA2805A3FC2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#amadeus.Response" title="amadeus.Response">amadeus.Response</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="#amadeus.ResponseError" title="amadeus.ResponseError"><strong>amadeus.ResponseError</strong></a> – if the request could not be completed</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="travel-analytics">
+<h2>Travel/Analytics<a class="headerlink" href="#travel-analytics" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="amadeus.travel.analytics.AirTraffic">
+<em class="property">class </em><code class="descclassname">amadeus.travel.analytics.</code><code class="descname">AirTraffic</code><span class="sig-paren">(</span><em>client</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/travel/analytics/_air_traffic.html#AirTraffic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.travel.analytics.AirTraffic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="referencedata-locations">
+<h2>ReferenceData/Locations<a class="headerlink" href="#referencedata-locations" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="amadeus.reference_data.Location">
+<em class="property">class </em><code class="descclassname">amadeus.reference_data.</code><code class="descname">Location</code><span class="sig-paren">(</span><em>client</em>, <em>location_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/reference_data/_location.html#Location"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.reference_data.Location" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="amadeus.reference_data.Location.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/reference_data/_location.html#Location.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.reference_data.Location.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns details for a specific airport.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">amadeus</span><span class="o">.</span><span class="n">reference_data</span><span class="o">.</span><span class="n">location</span><span class="p">(</span><span class="s1">&#39;ALHR&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#amadeus.Response" title="amadeus.Response">amadeus.Response</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="#amadeus.ResponseError" title="amadeus.ResponseError"><strong>amadeus.ResponseError</strong></a> – if the request could not be completed</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="amadeus.reference_data.Locations">
+<em class="property">class </em><code class="descclassname">amadeus.reference_data.</code><code class="descname">Locations</code><span class="sig-paren">(</span><em>client</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/reference_data/_locations.html#Locations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.reference_data.Locations" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="amadeus.reference_data.Locations.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/reference_data/_locations.html#Locations.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.reference_data.Locations.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns details for a specific airport.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">amadeus</span> <span class="kn">import</span> <span class="n">Location</span>
+
+<span class="n">client</span><span class="o">.</span><span class="n">reference_data</span><span class="o">.</span><span class="n">locations</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="n">keyword</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span>
+    <span class="n">subType</span><span class="o">=</span><span class="n">Location</span><span class="o">.</span><span class="n">ANY</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>keyword</strong> – keyword that should represent the  start of
+a word in a city or airport name or code</li>
+<li><strong>subType</strong> – a comma seperate list of location types to search
+for. You can use <a class="reference internal" href="#amadeus.Location" title="amadeus.Location"><code class="xref py py-class docutils literal notranslate"><span class="pre">amadeus.Location</span></code></a> as a helper for this.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="#amadeus.Response" title="amadeus.Response">amadeus.Response</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#amadeus.ResponseError" title="amadeus.ResponseError"><strong>amadeus.ResponseError</strong></a> – if the request could not be completed</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="amadeus.reference_data.locations.Airports">
+<em class="property">class </em><code class="descclassname">amadeus.reference_data.locations.</code><code class="descname">Airports</code><span class="sig-paren">(</span><em>client</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/reference_data/locations/_airports.html#Airports"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.reference_data.locations.Airports" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="amadeus.reference_data.locations.Airports.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/reference_data/locations/_airports.html#Airports.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.reference_data.locations.Airports.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of relevant airports near to a given point.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">reference_data</span><span class="o">.</span><span class="n">locations</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="n">longitude</span><span class="o">=</span><span class="mf">49.0000</span><span class="p">,</span>
+    <span class="n">latitude</span><span class="o">=</span><span class="mf">2.55</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>latitude</strong> – latitude of geographic location to search around.
+For example: <code class="docutils literal notranslate"><span class="pre">52.5238</span></code></li>
+<li><strong>longitude</strong> – longitude of geographic location to search around.
+For example: <code class="docutils literal notranslate"><span class="pre">13.3835</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="#amadeus.Response" title="amadeus.Response">amadeus.Response</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#amadeus.ResponseError" title="amadeus.ResponseError"><strong>amadeus.ResponseError</strong></a> – if the request could not be completed</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="amadeus.reference_data.Airlines">
+<em class="property">class </em><code class="descclassname">amadeus.reference_data.</code><code class="descname">Airlines</code><span class="sig-paren">(</span><em>client</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/reference_data/_airlines.html#Airlines"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.reference_data.Airlines" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="amadeus.reference_data.Airlines.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/reference_data/_airlines.html#Airlines.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.reference_data.Airlines.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the name of the airline given an IATA code.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">amadeus</span><span class="o">.</span><span class="n">reference_data</span><span class="o">.</span><span class="n">airlines</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">airlineCodes</span><span class="o">=</span><span class="s1">&#39;U2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>airlineCodes</strong> – the IATA or ICAO code for the airline, e.g.</td>
+</tr>
+</tbody>
+</table>
+<p>:<code class="docutils literal notranslate"><span class="pre">&quot;AF&quot;</span></code> (Air France IATA code)
+:or <code class="docutils literal notranslate"><span class="pre">&quot;AFR&quot;</span></code> (Air France ICAO code)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#amadeus.Response" title="amadeus.Response">amadeus.Response</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="#amadeus.ResponseError" title="amadeus.ResponseError"><strong>amadeus.ResponseError</strong></a> – if the request could not be completed</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="referencedata-urls">
+<h2>ReferenceData/Urls<a class="headerlink" href="#referencedata-urls" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="amadeus.reference_data.urls.CheckinLinks">
+<em class="property">class </em><code class="descclassname">amadeus.reference_data.urls.</code><code class="descname">CheckinLinks</code><span class="sig-paren">(</span><em>client</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/reference_data/urls/_checkin_links.html#CheckinLinks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.reference_data.urls.CheckinLinks" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="amadeus.reference_data.urls.CheckinLinks.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amadeus/reference_data/urls/_checkin_links.html#CheckinLinks.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.reference_data.urls.CheckinLinks.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the checkin links for an airline, for the
+language of your choice</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">amadeus</span><span class="o">.</span><span class="n">reference_data</span><span class="o">.</span><span class="n">urls</span><span class="o">.</span><span class="n">checkin_links</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">airlineCode</span><span class="o">=</span><span class="s1">&#39;BA&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>airlineCode</strong> – the IATA code for the airline, e.g. <code class="docutils literal notranslate"><span class="pre">&quot;BA&quot;</span></code></li>
+<li><strong>language</strong> – the locale for the links, for example <code class="docutils literal notranslate"><span class="pre">&quot;en-GB&quot;</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="#amadeus.Response" title="amadeus.Response">amadeus.Response</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#amadeus.ResponseError" title="amadeus.ResponseError"><strong>amadeus.ResponseError</strong></a> – if the request could not be completed</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="helper-location">
+<h2>Helper/Location<a class="headerlink" href="#helper-location" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="amadeus.Location">
+<em class="property">class </em><code class="descclassname">amadeus.</code><code class="descname">Location</code><a class="reference internal" href="_modules/amadeus/client/location.html#Location"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#amadeus.Location" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of location types, as used in searching for locations</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">amadeus</span> <span class="kn">import</span> <span class="n">Location</span>
+
+<span class="n">client</span><span class="o">.</span><span class="n">reference_data</span><span class="o">.</span><span class="n">locations</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="n">keyword</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span>
+    <span class="n">subType</span><span class="o">=</span><span class="n">Location</span><span class="o">.</span><span class="n">ANY</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>AIRPORT</strong> – <code class="docutils literal notranslate"><span class="pre">&quot;AIRPORT&quot;</span></code></li>
+<li><strong>CITY</strong> – <code class="docutils literal notranslate"><span class="pre">&quot;CITY&quot;</span></code></li>
+<li><strong>ANY</strong> – <code class="docutils literal notranslate"><span class="pre">&quot;AIRPORT,CITY&quot;</span></code></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amadeus4Dev.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
